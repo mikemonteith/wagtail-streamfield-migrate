@@ -1,0 +1,125 @@
+[
+{
+  "model": "wagtailcore.site",
+  "fields": {
+    "hostname": "localhost",
+    "port": 80,
+    "site_name": null,
+    "root_page": 3,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 1,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2019-10-08T10:50:04.384Z",
+    "user": [
+      "wagtail"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 0, \"title\": \"HomePage test\", \"draft_title\": \"HomePage test\", \"slug\": \"homepage-test\", \"content_type\": 5, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/homepage-test/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"body\": \"[{\\\"type\\\": \\\"title\\\", \\\"value\\\": \\\"Heading 1\\\", \\\"id\\\": \\\"a901c473-4834-4e94-94d9-6ff4bb3d5278\\\"}, {\\\"type\\\": \\\"paragraph\\\", \\\"value\\\": \\\"<p>This first paragraph contains some <b>bold</b> text and some <i>italics</i> too.</p>\\\", \\\"id\\\": \\\"c47b24d6-4a80-400a-800d-850e5bc18779\\\"}]\"}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.collection",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 0,
+    "name": "Root"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$150000$1qmrg9hBnDLH$En6DQSR74lwlbIwGo8zfbko7ipxhsrdkLaZe8Jy8SoI=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "wagtail",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-10-08T11:09:53.259Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 1,
+    "title": "Root",
+    "draft_title": "Root",
+    "slug": "root",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "latest_revision_created_at": null,
+    "live_revision": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 3,
+  "fields": {
+    "path": "00010002",
+    "depth": 2,
+    "numchild": 0,
+    "title": "HomePage test",
+    "draft_title": "HomePage test",
+    "slug": "homepage-test",
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/homepage-test/",
+    "owner": [
+      "wagtail"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-10-08T10:50:04.394Z",
+    "last_published_at": "2019-10-08T10:50:04.394Z",
+    "latest_revision_created_at": "2019-10-08T10:50:04.384Z",
+    "live_revision": 1
+  }
+},
+{
+  "model": "home.homepage",
+  "pk": 3,
+  "fields": {
+    "page_ptr": 3,
+    "body": "[{\"type\": \"title\", \"value\": \"Heading 1\", \"id\": \"a901c473-4834-4e94-94d9-6ff4bb3d5278\"}, {\"type\": \"paragraph\", \"value\": \"<p>This first paragraph contains some <b>bold</b> text and some <i>italics</i> too.</p>\", \"id\": \"c47b24d6-4a80-400a-800d-850e5bc18779\"}]"
+  }
+}
+]
