@@ -8,6 +8,11 @@ This wagtail plugin aims to make custom streamfield migrations easy.
 
 ## Contributing
 
+### Getting started
+
+1. Clone the repo `git clone https://github.com/mikemonteith/wagtail-streamfield-migrate.git`
+2. Install dependencies `pip install -e .[testing]`
+
 ### Formatting
 
 `black .`

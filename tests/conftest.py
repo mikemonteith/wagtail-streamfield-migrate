@@ -16,6 +16,7 @@ def django_db_setup(django_db_blocker):
         targets.append(("home", "0002_homepage_body"))
 
         migration_executor.migrate(targets)
+        call_command("flush", "--noinput")
         call_command("loaddata", "testapp/testdata.json")
 
 

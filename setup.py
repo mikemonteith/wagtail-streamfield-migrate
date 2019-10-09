@@ -3,14 +3,17 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-INSTALL_REQUIRES = [
-    'Wagtail>=2.0',
-]
+INSTALL_REQUIRES = ["Wagtail>=2.0"]
 
 TESTING_REQUIRES = [
-    'pytest',
-    'pytest-django',
-    'pytest-pythonpath',
+    "black==19.3b0",
+    "Django>=2.2,<2.3",
+    "flake8==3.7.8",
+    "flake8-black==0.1.1",
+    "pytest==5.2.1",
+    "pytest-django==3.5.1",
+    "pytest-pythonpath==0.7.3",
+    "wagtail>=2.6,<2.7",
 ]
 
 setup(
@@ -25,5 +28,5 @@ setup(
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    extras_require={'testing': TESTING_REQUIRES},
+    extras_require={"testing": TESTING_REQUIRES},
 )
