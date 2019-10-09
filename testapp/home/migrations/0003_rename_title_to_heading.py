@@ -4,28 +4,9 @@ import json
 from django.db import migrations
 
 import wagtail.core.blocks
-from wagtail.core.blocks.stream_block import StreamValue
 import wagtail.core.fields
 
-
-
-def forwards(apps, schema_editor):
-    HomePage = apps.get_model("home", "HomePage")
-
-    pages = HomePage.objects.all()
-    for page in pages:
-        stream_data = page.body.stream_data
-        for block in stream_data:
-            if block["type"] == "title":
-                block["type"] = "heading"
-
-        stream_block = page.body.stream_block
-        page.body = StreamValue(stream_block, [], is_lazy=True, raw_text=json.dumps(stream_data))
-        page.save()
-
-def backwards(apps, schema_editor):
-    # TODO
-    pass
+from wagtailstreamfieldmigrate import StreamfieldMigration
 
 class Migration(migrations.Migration):
 
@@ -33,8 +14,18 @@ class Migration(migrations.Migration):
         ('home', '0002_homepage_body'),
     ]
 
+    def forwards(stream_data):
+        for block in stream_data:
+            if block["type"] == "title":
+                block["type"] = "heading"
+        return stream_data
+
+    def backwards(stream_data):
+        # TODO
+        return stream_data
+
     operations = [
-        migrations.RunPython(forwards, backwards),
+        StreamfieldMigration('home', 'homepage', 'body', forwards, backwards),
         migrations.AlterField(
             model_name='homepage',
             name='body',
