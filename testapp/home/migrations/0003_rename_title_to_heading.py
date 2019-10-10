@@ -21,14 +21,17 @@ class Migration(migrations.Migration):
         return stream_data
 
     def backwards(stream_data):
-        # TODO
+        for block in stream_data:
+            if block["type"] == "heading":
+                block["type"] = "title"
         return stream_data
 
     operations = [
-        StreamfieldMigration('home', 'homepage', 'body', forwards, backwards),
+        StreamfieldMigration('home', 'homepage', 'body', forwards, None),
         migrations.AlterField(
             model_name='homepage',
             name='body',
             field=wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock()), ('paragraph', wagtail.core.blocks.RichTextBlock())]),
         ),
+        StreamfieldMigration('home', 'homepage', 'body', None, backwards),
     ]

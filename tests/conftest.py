@@ -6,21 +6,19 @@ from django.db.migrations.executor import MigrationExecutor
 
 
 @pytest.fixture()
-def django_db_setup(django_db_blocker):
+def get_migration_executor():
+    return lambda: MigrationExecutor(connection, progress_callback=None)
+
+
+@pytest.fixture()
+def django_db_setup(django_db_blocker, get_migration_executor):
     with django_db_blocker.unblock():
-        migration_executor = MigrationExecutor(connection, progress_callback=None)
-        targets = migration_executor.loader.graph.leaf_nodes()
+        targets = get_migration_executor().loader.graph.leaf_nodes()
 
         # Remove default 'home' target and add a custom target
         targets = [target for target in targets if target[0] != "home"]
         targets.append(("home", "0002_homepage_body"))
 
-        migration_executor.migrate(targets)
+        get_migration_executor().migrate(targets)
         call_command("flush", "--noinput")
         call_command("loaddata", "testapp/testdata.json")
-
-
-@pytest.fixture()
-def migrate():
-    migration_executor = MigrationExecutor(connection, progress_callback=None)
-    return migration_executor
